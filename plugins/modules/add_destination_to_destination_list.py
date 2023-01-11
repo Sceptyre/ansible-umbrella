@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from ansible.module_utils.basic import *
-from ansible_collections.sceptyre.ansible_umbrella.plugins.module_utils import umbrellaclient
+from ansible_collections.sceptyre.ansible_umbrella.plugins.module_utils.client import UmbrellaClient
 
 def main():
     args = {}
@@ -15,7 +15,7 @@ def main():
     mod = AnsibleModule(argument_spec=args)
 
     try:
-        c = umbrellaclient.UmbrellaClient(
+        c = UmbrellaClient(
             mod.params.get("username"),
             mod.params.get("password")
         )
