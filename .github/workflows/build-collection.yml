@@ -20,7 +20,7 @@ jobs:
         uses: artis3n/ansible_galaxy_collection@v2.8.2
         with:
           publish: false
-          api_key: "  "
+          api_key: "api_key"
           
       - name: Get current version
         id: cversion
