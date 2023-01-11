@@ -1,7 +1,7 @@
 ---
 namespace: "sceptyre"
 name: "ansible_umbrella"
-description: ""
+description: "Module for interacting with Cisco Umbrella"
 
 version: "0.0.1"
 readme: "README.md"
