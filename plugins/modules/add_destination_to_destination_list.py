@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from ansible.module_utils.basic import *
-from ansible_collections.sceptyre.ansible_umbrella.plugins.module_utils.client import UmbrellaClient
+from ansible_collections.sceptyre.ansible_umbrella.plugins.module_utils.umbrellaclient.client import UmbrellaClient
 
 def main():
     args = {}
