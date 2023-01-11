@@ -1,0 +1,33 @@
+name: Ansible Collection
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Deploy Ansible Galaxy Collection
+        id: build_collection
+        uses: artis3n/ansible_galaxy_collection@v2.8.2
+        with:
+          publish: false
+          api_key: ${{ secrets.GALAXY_API_KEY }}
+          
+      - name: Get current version
+        id: cversion
+        run: echo "::set-output name=version::$(grep version galaxy.yml | awk -F'"' '{ print $2 }')"    
+      
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "v${{ steps.cversion.outputs.version }}"
+          prerelease: true
+          title: "Release v${{ steps.cversion.outputs.version }}"
+          files: |
+            *.tar.gz
