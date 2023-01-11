@@ -1,13 +1,13 @@
 #!/usr/bin/python
 from ansible.module_utils.basic import *
-from ..module_utils import umbrellaclient
+from ansible_collections.sceptyre.ansible_umbrella.plugins.module_utils import umbrellaclient
 
 def main():
     args = {}
     args.update({
         "username"  : {"type": "str", "required": True},
         "password"  : {"type": "str", "required": True},
-        
+
         "domain"    : {"type": "str", "required": True},
         "destination_list_id": {"type": "str", "required": True}
     })
