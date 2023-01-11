@@ -1,5 +1,8 @@
 name: Ansible Collection
 
+permissions:
+  contents: write
+
 on:
   pull_request:
     branches: [ "main" ]
@@ -20,7 +23,7 @@ jobs:
         uses: artis3n/ansible_galaxy_collection@v2.8.2
         with:
           publish: false
-          api_key: ${{ secrets.GALAXY_API_KEY }}
+          api_key: "api_key"
           
       - name: Get current version
         id: cversion
