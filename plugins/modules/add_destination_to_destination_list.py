@@ -6,10 +6,10 @@ def main():
     args = {}
     args.update({
         "username"  : {"type": "str", "required": True},
-        "password"  : {"type": "str", "required": True},
+        "password"  : {"type": "str", "required": True, "no_log": True},
 
-        "domain"    : {"type": "str", "required": True},
-        "destination_list_id": {"type": "str", "required": True}
+        "domain"                : {"type": "str", "required": True},
+        "destination_list_id"   : {"type": "str", "required": True}
     })
 
     mod = AnsibleModule(argument_spec=args)
